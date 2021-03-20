@@ -28,7 +28,9 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: install Snyk
-      run: npm install -g snyk
+      run: |
+         npm install -g snyk
+         chmod +x mvnw
     - name: snyk test 
       run: snyk test --all-projects
       continue-on-error: true
